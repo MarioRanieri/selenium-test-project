@@ -16,21 +16,20 @@ public class FluentWaitDemo {
 
     public static void main(String[] args) {
 
-        WebDriver driver= new ChromeDriver();
+        WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-
-        Wait<WebDriver> mywait= new FluentWait<>(driver)
+        Wait<WebDriver> mywait=new FluentWait<>(driver)
         		.withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofMillis(500))
                 .ignoring(NoSuchElementException.class)
                 .ignoring(StaleElementReferenceException.class);
 
-        // Attendi fino a quando l'input è presente/visibile e restituiscilo
-        WebElement txtusername= mywait.until(new Function<WebDriver, WebElement>() {
+        //wait until input is visible and return it
+        WebElement txtusername=mywait.until(new Function<WebDriver, WebElement>() {
         	@Override
         	public WebElement apply(WebDriver d) {
-        		WebElement el= d.findElement(By.xpath("//input[@placeholder='Username']"));
+        		WebElement el=d.findElement(By.xpath("//input[@placeholder='Username']"));
                 return (el.isDisplayed() && el.isEnabled()) ? el : null;
               }
           });

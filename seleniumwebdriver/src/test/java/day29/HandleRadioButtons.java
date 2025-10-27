@@ -18,6 +18,5 @@ public class HandleRadioButtons {
 		//1) select
 		WebElement male_rd=driver.findElement(By.xpath("//input[@id='male']"));
 		male_rd.click();
-		
 	}
 }

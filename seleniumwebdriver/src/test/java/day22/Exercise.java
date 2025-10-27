@@ -12,43 +12,33 @@ public class Exercise {
 
     public static void main(String[] args) {
         
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver=new ChromeDriver();
         
         try {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.get("https://www.demoblaze.com/index.html");
             
-            // Aspetta caricamento
+            //wait
             Thread.sleep(3000);
             
-            // Conta link
-            List<WebElement> links = driver.findElements(By.tagName("a"));
-            System.out.println("Numero di link: " + links.size());
+            //count links
+            List<WebElement> links=driver.findElements(By.tagName("a"));
+            System.out.println(links.size());
             
-            // Conta immagini
-            List<WebElement> images = driver.findElements(By.tagName("img"));
-            System.out.println("Numero di immagini: " + images.size());
+            //count images
+            List<WebElement> images=driver.findElements(By.tagName("img"));
+            System.out.println(images.size());
             
-            // VERIFICA ESISTENZA con findElements
-            List<WebElement> samsungLinks = driver.findElements(By.partialLinkText("Samsung"));
-            
-            if(samsungLinks.size() > 0) {
-                System.out.println("Elemento trovato: " + samsungLinks.get(0).getText());
+            //check if exist
+            List<WebElement> samsungLinks=driver.findElements(By.partialLinkText("Samsung"));
+            if(samsungLinks.size()>0) {
+                System.out.println(samsungLinks.get(0).getText());
                 samsungLinks.get(0).click();
                 Thread.sleep(2000);
-                System.out.println("Click eseguito!");
             } else {
-                System.out.println("Nessun prodotto Samsung trovato!");
-                
-                // Proviamo con un altro prodotto
-                List<WebElement> nokiaLinks = driver.findElements(By.partialLinkText("Nokia"));
-                if(nokiaLinks.size() > 0) {
-                    System.out.println("Cliccando su: " + nokiaLinks.get(0).getText());
-                    nokiaLinks.get(0).click();
-                }
-            }
-            
+                System.out.println("Product not found!");
+            }  
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

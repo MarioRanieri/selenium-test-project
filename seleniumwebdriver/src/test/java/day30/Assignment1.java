@@ -16,7 +16,6 @@ public class Assignment1 {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
 		driver.manage().window().maximize();
-		
 		driver.findElement(By.xpath("//button[@name='proceed']")).click();
 		Thread.sleep(5000);
 		

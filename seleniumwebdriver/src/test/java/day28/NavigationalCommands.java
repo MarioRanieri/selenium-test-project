@@ -11,11 +11,10 @@ public class NavigationalCommands {
 	public static void main(String[] args) throws MalformedURLException {
 	
 		WebDriver driver=new ChromeDriver();
-		//driver.get("https://demo.nopcommerce.com/");  //accepts URL only in the string format
+		//driver.get("https://demo.nopcommerce.com/"); //accepts URL only in the string format
 		
 		URL myurl=new URL("https://demo.nopcommerce.com/");
 		driver.navigate().to(myurl);
-		
 		driver.navigate().to("https://demo.nopcommerce.com/");
 		driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 			

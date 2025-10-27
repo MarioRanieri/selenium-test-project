@@ -9,25 +9,24 @@ public class ConditionalMethods {
 
 public static void main(String[] args) {
 		
-		WebDriver driver= new ChromeDriver();
-		
+		WebDriver driver=new ChromeDriver();
 		driver.get("https://demo.nopcommerce.com/register");
 		driver.manage().window().maximize();
 		
 		//isDisplayed()
-		WebElement logo= driver.findElement(By.xpath("//img[@alt='nopCommerce demo store']"));
+		WebElement logo=driver.findElement(By.xpath("//img[@alt='nopCommerce demo store']"));
 		System.out.println("Display status of logo: " + logo.isDisplayed()); //true
 		//compact version
-		boolean statusDisplayed= driver.findElement(By.xpath("//img[@alt='nopCommerce demo store']")).isDisplayed();
+		boolean statusDisplayed=driver.findElement(By.xpath("//img[@alt='nopCommerce demo store']")).isDisplayed();
 		System.out.println("Display status: " + statusDisplayed);
 		
 		//isEnabled()
-		boolean statusEnabled= driver.findElement(By.xpath("//input[@id='FirstName']")).isEnabled();
+		boolean statusEnabled=driver.findElement(By.xpath("//input[@id='FirstName']")).isEnabled();
 		System.out.println("Enable status: " + statusEnabled); //true
 		
 		//isSelected()
-		WebElement male_rd= driver.findElement(By.xpath("//input[@id='gender-male']"));
-		WebElement female_rd= driver.findElement(By.xpath("//input[@id='gender-female']"));
+		WebElement male_rd=driver.findElement(By.xpath("//input[@id='gender-male']"));
+		WebElement female_rd=driver.findElement(By.xpath("//input[@id='gender-female']"));
 		
 		System.out.println("Before selection...............");
 		System.out.println(male_rd.isSelected()); //false
@@ -45,7 +44,7 @@ public static void main(String[] args) {
 		System.out.println(male_rd.isSelected()); //false
 		System.out.println(female_rd.isSelected()); //true
 		
-		boolean newsletterstatus= driver.findElement(By.xpath("//input[@id='Newsletter']")).isSelected();
+		boolean newsletterstatus=driver.findElement(By.xpath("//input[@id='Newsletter']")).isSelected();
 		System.out.println("News letter checkbox status: " + newsletterstatus ); //true
 	}
 }
